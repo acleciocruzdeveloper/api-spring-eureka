@@ -21,13 +21,13 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t meu_usuario_docker/meu_app:${{ github.sha }} .
+        run: docker build -t aclecioscruz/api-spring-eureka:${{ github.sha }} .
 
       - name: Push Docker image
         run: |
-          docker tag meu_usuario_docker/meu_app:${{ github.sha }} meu_usuario_docker/meu_app:latest
-          docker push meu_usuario_docker/meu_app:${{ github.sha }}
-          docker push meu_usuario_docker/meu_app:latest
+          docker tag aclecioscruz/api-spring-eureka:${{ github.sha }} aclecioscruz/api-spring-eureka:latest
+          docker push aclecioscruz/api-spring-eureka:${{ github.sha }}
+          docker push aclecioscruz/api-spring-eureka:latest
 
   deploy:
     needs: build
