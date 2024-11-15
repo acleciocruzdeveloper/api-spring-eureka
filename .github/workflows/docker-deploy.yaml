@@ -7,13 +7,6 @@ on:
 
 jobs:
 
-  maven-test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses:
-
   build:
     runs-on: ubuntu-latest
 
