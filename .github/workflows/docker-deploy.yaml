@@ -42,7 +42,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.APP_NAME }}:latest
 
   deploy:
-    needs: build
+    needs: DockerImage
     runs-on: ubuntu-latest
 
     steps:
