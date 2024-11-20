@@ -33,8 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Build Docker image
-        working-directory: /
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.APP_NAME }}:${{ github.sha }} -f ./Dockerfile .
 
       - name: Push Docker image
         run: |
