@@ -1,9 +1,13 @@
 FROM maven:3.9-amazoncorretto-17 as build
 WORKDIR /app
 
+# Copiar o pom.xml e baixar as dependências primeiro (cache)
+COPY pom.xml ./
+RUN mvn dependency:go-offline -B
+
 COPY . .
 
-RUN ["sh", "-c", "mvn clean package || true", "-X", "-e"]
+RUN mvn clean package
 
 FROM amazoncorretto:17-alpine
 
