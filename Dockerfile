@@ -19,4 +19,4 @@ ARG PASSWORD_SECURITY=1234567890
 
 EXPOSE 8761
 
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active-prod", "app.jar"]
+ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "app.jar"]
